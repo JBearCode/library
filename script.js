@@ -21,22 +21,34 @@ function addBookToLibrary(e) {
   const pages = document.getElementById('pages').value;
   const alreadyRead = document.getElementById('alreadyread').checked;
   myLibrary.push(new Book(title, author, pages, alreadyRead, idCounter++));
-  console.log("addBookToLibrary ran");
+  updateTable();
 }
 
 function updateTable() {
   const bookTable = document.getElementById('booktable');
 
   for (let i = 0; i < myLibrary.length; i++) {
-    bookTable += "<tr>"
-    bookTable += "<td>" + myLibrary[i].title + "</td>"
-    bookTable += "<td>" + myLibrary[i].author + "</td>"
-    bookTable += "<td>" + myLibrary[i].pages + "</td>"
-    bookTable += "<td>" + myLibrary[i].read + "</td>"
-    bookTable += "<td>🗑️</td>"
-    bookTable += "</tr>"
+    let newRow = bookTable.insertRow(1);
+
+    let titleCell = newRow.insertCell(-1);
+    let titleText = document.createTextNode(myLibrary[i].title);
+    titleCell.appendChild(titleText);
+
+    let authorCell = newRow.insertCell(-1);
+    let authorText = document.createTextNode(myLibrary[i].author);
+    authorCell.appendChild(authorText);
+
+    let pagesCell = newRow.insertCell(-1);
+    let pagesText = document.createTextNode(myLibrary[i].pages);
+    pagesCell.appendChild(pagesText);
+
+    let readCell = newRow.insertCell(-1);
+    let readText = document.createTextNode(myLibrary[i].read);
+    readCell.appendChild(readText);  
+    
+    let deleteCell = newRow.insertCell(-1);
+    let deleteText = document.createTextNode("🗑️");
+    deleteCell.appendChild(deleteText);   
   }
-
-
 }
 
