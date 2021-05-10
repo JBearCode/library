@@ -25,7 +25,7 @@ function addBookToLibrary(e) {
 }
 
 function updateTable() {
-  const bookTable = document.getElementById('booktable');
+  // const bookTable = document.getElementById('booktable');
   const jsTable = document.getElementById('js-table');
   jsTable.innerHTML = "";
 
@@ -45,12 +45,14 @@ function updateTable() {
     pagesCell.appendChild(pagesText);
 
     let readCell = newRow.insertCell(-1);
-    let readText = document.createTextNode(myLibrary[i].read);
-    readCell.appendChild(readText);  
+    if (myLibrary[i].read == false) {
+        readCell.innerHTML = "❌";
+    } else {
+        readCell.innerHTML = "✔️";
+    }
     
     let deleteCell = newRow.insertCell(-1);
     let deleteText = document.createTextNode("🗑️");
-    deleteCell.appendChild(deleteText);   
+    deleteCell.appendChild(deleteText);
   }
 }
-
