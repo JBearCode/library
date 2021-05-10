@@ -19,5 +19,5 @@ function addBookToLibrary(e) {
   const pages = document.getElementById('pages').value;
   const alreadyRead = document.getElementById('alreadyread').checked;
   console.log("addBookToLibrary ran");
-  return new Book(title, author, pages, alreadyRead);
+  myLibrary.push(new Book(title, author, pages, alreadyRead));
 }
