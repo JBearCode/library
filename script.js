@@ -1,7 +1,7 @@
 "use strict";
 
 const form = document.getElementById("mainform");
-form.addEventListener("submit", addBookToLibrary)
+form.addEventListener("submit", addBookToLibrary);
 
 let myLibrary = [];
 let idCounter = 0;
@@ -26,9 +26,11 @@ function addBookToLibrary(e) {
 
 function updateTable() {
   const bookTable = document.getElementById('booktable');
+  const jsTable = document.getElementById('js-table');
+  jsTable.innerHTML = "";
 
   for (let i = 0; i < myLibrary.length; i++) {
-    let newRow = bookTable.insertRow(1);
+    let newRow = jsTable.insertRow(-1);
 
     let titleCell = newRow.insertCell(-1);
     let titleText = document.createTextNode(myLibrary[i].title);
