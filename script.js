@@ -1,5 +1,7 @@
 "use strict";
 
+const bookTable = document.getElementById('booktable');
+
 const form = document.getElementById("mainform");
 form.addEventListener("submit", addBookToLibrary);
 
@@ -26,7 +28,6 @@ function addBookToLibrary(e) {
 }
 
 function updateTable() {
-  // const bookTable = document.getElementById('booktable');
   const jsTable = document.getElementById('js-table');
   jsTable.innerHTML = "";
 
@@ -55,4 +56,19 @@ function updateTable() {
     let deleteCell = newRow.insertCell(-1);
     deleteCell.innerHTML = '<button type="button" class="delete-button">🗑️</button>'
   }
+}
+
+bookTable.addEventListener("click", readOrDelete);
+
+function readOrDelete(e) {
+    console.log(e);
+    if (e.target.innerHTML == '🗑️') {
+        // find clicked book, then delete in myLibrary
+        console.log("trash can!");
+    }
+    if (e.target.classList.contains("read-unread-button")) {
+        // write function to toggle read-unread for clicked book
+        console.log("Read or unread?");
+    }
+    updateTable();
 }
