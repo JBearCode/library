@@ -58,12 +58,15 @@ function updateTable() {
   }
 }
 
-bookTable.addEventListener("click", readOrDelete);
+bookTable.addEventListener("click", respondToClick);
 
-function readOrDelete(e) {
+function respondToClick(e) {
     console.log(e);
+    const targetBook = e.target.parentNode.parentNode.childNodes[0].innerText;
+    console.log(targetBook);
+
     if (e.target.innerHTML == '🗑️') {
-        // find clicked book, then delete in myLibrary
+        deleteBook(findBookInArray(targetBook));
         console.log("trash can!");
     }
     if (e.target.classList.contains("read-unread-button")) {
@@ -71,4 +74,19 @@ function readOrDelete(e) {
         console.log("Read or unread?");
     }
     updateTable();
+}
+
+function findBookInArray(title) {
+  if (myLibrary.length == 0 || myLibrary == null) {
+      return;
+  }
+  for (let book of myLibrary) {
+      if (book.title === title) {
+        return myLibrary.indexOf(book);
+      }
+  }
+}
+
+function deleteBook(arrayIndexToBeDeleted) {
+    myLibrary.splice(arrayIndexToBeDeleted, arrayIndexToBeDeleted + 1);
 }
