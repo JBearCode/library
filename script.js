@@ -22,6 +22,7 @@ function addBookToLibrary(e) {
   const alreadyRead = document.getElementById('alreadyread').checked;
   myLibrary.push(new Book(title, author, pages, alreadyRead, idCounter++));
   updateTable();
+  form.reset();
 }
 
 function updateTable() {
@@ -46,13 +47,12 @@ function updateTable() {
 
     let readCell = newRow.insertCell(-1);
     if (myLibrary[i].read == false) {
-        readCell.innerHTML = "❌";
+        readCell.innerHTML = '<button type="button" class="read-unread-button">❌</button>'
     } else {
-        readCell.innerHTML = "✔️";
+        readCell.innerHTML = '<button type="button" class="read-unread-button">✔️</button>'
     }
     
     let deleteCell = newRow.insertCell(-1);
-    let deleteText = document.createTextNode("🗑️");
-    deleteCell.appendChild(deleteText);
+    deleteCell.innerHTML = '<button type="button" class="delete-button">🗑️</button>'
   }
 }
