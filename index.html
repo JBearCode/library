@@ -7,7 +7,9 @@
   <link href="style.css" rel="stylesheet">
 </head>
 <body>
+<header>
   <h1>📚 My Library</h1>
+
   <form>
       <label for="booktitle">Title:</label>
       <input type="text" id="booktitle" name="booktitle">
@@ -17,8 +19,21 @@
 
       <label for="alreadyread">Already read?</label>
       <input type="checkbox" id="alreadyread" name="alreadyread">
-  </form>
 
+      <input type="submit" value="Submit">
+  </form>
+</header>
+<main>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Read?</th>
+            <th>Delete</th>
+        </tr>
+    </table>
+</main>
 
 
 
