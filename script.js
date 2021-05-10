@@ -6,7 +6,7 @@ const form = document.getElementById("mainform");
 form.addEventListener("submit", addBookToLibrary);
 
 let myLibrary = [];
-let idCounter = 0;
+let idCounter = 3;
 
 function Book(title, author, pages, read, id) {
   this.title = title;
@@ -15,6 +15,20 @@ function Book(title, author, pages, read, id) {
   this.read = read;
   this.id = id;
 }
+
+function populateInitial() {
+
+}
+
+window.onload = populateInitial();
+
+window.onload = () => {
+    myLibrary.push(new Book('Fellowship of the Ring', 'J.R.R. Tolkein', 423, true, 0));
+    myLibrary.push(new Book('Two Towers', 'J.R.R. Tolkein', 352, true, 1));
+    myLibrary.push(new Book('Return of The King', 'J.R.R. Tolkein', 416, false, 2));
+    updateTable();
+    console.log('onload function working');
+  };
 
 function addBookToLibrary(e) {
   e.preventDefault();
@@ -99,3 +113,4 @@ function markReadUnread(arrayIndex) {
         myLibrary[arrayIndex].read = false;
     }
 }
+
