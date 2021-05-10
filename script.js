@@ -1,5 +1,8 @@
 "use strict";
 
+const form = document.getElementById("mainform");
+form.addEventListener("submit", addBookToLibrary)
+
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -9,8 +12,12 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-function addBookToLibrary(form) {
-  let newBook = Book(form.booktitle.value, form.author.value, form.pages.value, form.read.value);
-  myLibrary.push(newBook);
+function addBookToLibrary(e) {
+  e.preventDefault();
+  const title = document.getElementById('booktitle').value;
+  const author = document.getElementById('author').value;
+  const pages = document.getElementById('pages').value;
+  const alreadyRead = document.getElementById('alreadyread').checked;
   console.log("addBookToLibrary ran");
+  return new Book(title, author, pages, alreadyRead);
 }
