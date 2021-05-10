@@ -70,7 +70,7 @@ function respondToClick(e) {
         console.log("trash can!");
     }
     if (e.target.classList.contains("read-unread-button")) {
-        // write function to toggle read-unread for clicked book
+        markReadUnread(findBookInArray(targetBook));
         console.log("Read or unread?");
     }
     updateTable();
@@ -89,4 +89,13 @@ function findBookInArray(title) {
 
 function deleteBook(arrayIndexToBeDeleted) {
     myLibrary.splice(arrayIndexToBeDeleted, arrayIndexToBeDeleted + 1);
+}
+
+function markReadUnread(arrayIndex) {
+    if (myLibrary[arrayIndex].read == false) {
+        myLibrary[arrayIndex].read = true;
+        return;
+    } else {
+        myLibrary[arrayIndex].read = false;
+    }
 }
