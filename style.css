@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    font-family: 'EB Garamond', serif;
 }
   
 *, *::before, *::after {
@@ -8,27 +9,43 @@ html {
     box-sizing: inherit;
 }
 
+h1 {
+    text-align: center;
+    padding: 30px;
+    font-size: 40px;
+}
+
+header {
+    text-align: center;
+}
+
 table {
     border-collapse: collapse;
-    font-size: 16px;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 td, th {
-    border-bottom: thin solid rgb(238, 238, 238);
+    border-bottom: thin solid rgb(172, 172, 172);
     padding: 0.5rem;
     text-align: center;
     padding: 10px 25px;
 }
 
+#js-table tr:nth-child(odd) {
+    background-color: rgb(255, 230, 230)
+}
+
 button {
     height: 30px;
     width: 75px;
-    border: thin solid rgb(238, 238, 238);
-    transition: font-size .2s;
+    border: thin solid rgb(172, 172, 172);
+    transition: font-size .2s, background-color 1s;
 }
 
 button:hover {
-    border: thin solid #ddd;
+    border: thin solid rgb(138, 137, 137));
     background-color:rgb(110, 201, 253);
-    font-size: 18px;
+    font-size: 20px;
 }
