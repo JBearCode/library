@@ -16,19 +16,20 @@ function Book(title, author, pages, read, id) {
   this.id = id;
 }
 
-function populateInitial() {
-
+function populateTable() {
+    if (localStorage.getItem('localLibrary')) {
+        myLibrary = JSON.parse(localStorage.getItem("localLibrary"));
+        console.log('Local library loaded');
+    } else {
+        myLibrary.push(new Book('Fellowship of the Ring', 'J.R.R. Tolkein', 423, true, 0));
+        myLibrary.push(new Book('Two Towers', 'J.R.R. Tolkein', 352, true, 1));
+        myLibrary.push(new Book('Return of The King', 'J.R.R. Tolkein', 416, false, 2));
+        console.log('No local library found');
+    }
+    updateTable();
 }
 
-window.onload = populateInitial();
-
-window.onload = () => {
-    myLibrary.push(new Book('Fellowship of the Ring', 'J.R.R. Tolkein', 423, true, 0));
-    myLibrary.push(new Book('Two Towers', 'J.R.R. Tolkein', 352, true, 1));
-    myLibrary.push(new Book('Return of The King', 'J.R.R. Tolkein', 416, false, 2));
-    updateTable();
-    console.log('onload function working');
-  };
+window.onload = populateTable();
 
 function addBookToLibrary(e) {
   e.preventDefault();
@@ -37,6 +38,7 @@ function addBookToLibrary(e) {
   const pages = document.getElementById('pages').value;
   const alreadyRead = document.getElementById('alreadyread').checked;
   myLibrary.push(new Book(title, author, pages, alreadyRead, idCounter++));
+  localStorage.setItem('localLibrary', JSON.stringify(myLibrary));
   updateTable();
   form.reset();
 }
@@ -82,12 +84,15 @@ function respondToClick(e) {
     if (e.target.innerHTML == '🗑️') {
         deleteBook(findBookInArray(targetBook));
         console.log("trash can!");
+        localStorage.setItem('localLibrary', JSON.stringify(myLibrary));
+        updateTable();
     }
     if (e.target.classList.contains("read-unread-button")) {
         markReadUnread(findBookInArray(targetBook));
         console.log("Read or unread?");
+        localStorage.setItem('localLibrary', JSON.stringify(myLibrary));
+        updateTable();
     }
-    updateTable();
 }
 
 function findBookInArray(title) {
