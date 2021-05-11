@@ -15,7 +15,7 @@ header {
 
 h1 {
     padding: 15px 0px 10px 0px;
-    font-size: 40px;
+    font-size: 50px;
 }
 
 input[type=text], input[type=submit], input[type=number], label {
@@ -41,13 +41,14 @@ input:focus {
 
 input[type=checkbox] {
     border: solid thin rgb(172, 172, 172);
+    margin: 6px 0px;
 }
 
 input[type=submit] {
     border-radius: 10px;
     border: solid thin rgb(172, 172, 172);
     text-align: center;
-    padding: 2px 5px;
+    padding: 2px 20px;
     margin: 8px 0px 15px 0px;
 }
 
@@ -99,4 +100,12 @@ button:hover {
     border: thin solid rgb(138, 137, 137));
     background-color:rgb(110, 201, 253);
     font-size: 20px;
+}
+
+@media only screen and (max-width: 650px) {
+
+table td:nth-child(2), th:nth-child(2), td:nth-child(3), th:nth-child(3
+) {
+  display: none;
+}
 }
