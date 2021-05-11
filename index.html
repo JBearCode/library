@@ -14,22 +14,32 @@
   <h1>📚 My Library</h1>
 
   <form id="mainform">
-      <label for="booktitle">Title:</label>
-      <input type="text" id="booktitle" name="booktitle" required>
+      <div id="title-div" class="to-space-between">
+       <!--  <label for="booktitle">Title:</label> -->
+        <input type="text" id="booktitle" name="booktitle" placeholder="Book Title" required autofocus><br>
+      </div>
 
-      <label for="author">Author:</label>
-      <input type="text" id="author" name="author" required>
+      <div id="author-div" class="to-space-between">
+        <!-- <label for="author">Author:</label> -->
+        <input type="text" id="author" name="author" placeholder="Author" required><br>
+      </div>
 
-      <label for="pages">Pages:</label>
-      <input type="text" id="pages" name="pages" required>
+      <div id="pages-div" class="to-space-between">
+      <!-- <label for="pages">Pages:</label> -->
+      <input type="text" id="pages" name="pages" maxlength="5" placeholder="Pages" required><br>
+      </div>
 
-      <label for="alreadyread">Already read?</label>
-      <input type="checkbox" id="alreadyread" name="alreadyread">
+      <div id="read-div" class="to-space-between">
+        <label for="alreadyread">Already read?</label>
+        <input type="checkbox" id="alreadyread" name="alreadyread"><br>
+      </div>
 
-      <input type="submit" value="Submit">
+      <input type="submit" value="Add to Library">
   </form>
 </header>
 <main>
+
+    <div id="table-div">
     <table id="booktable">
         <tr>
             <th>Title</th>
@@ -40,6 +50,7 @@
         </tr>
         <tbody id="js-table"></tbody>
     </table>
+    </div>
 </main>
 
 <script src="script.js"></script>

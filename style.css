@@ -9,21 +9,72 @@ html {
     box-sizing: inherit;
 }
 
-h1 {
+header {
     text-align: center;
-    padding: 30px;
+}
+
+h1 {
+    padding: 15px 0px 10px 0px;
     font-size: 40px;
 }
 
-header {
+input[type=text], input[type=submit], label {
+    font-size: 16px;
+    font-family: 'EB Garamond', serif;
+}
+
+input[type=text] {
+    border-radius: 10px;
+    border: solid thin rgb(172, 172, 172);
     text-align: center;
+    padding: 2px 10px;
+    margin: 5px 0px;
+}
+
+input[type=text]:hover {
+    background-color: rgb(110, 201, 253);
+}
+
+input:focus {
+    outline: none;
+}
+
+input[type=checkbox] {
+    border: solid thin rgb(172, 172, 172);
+}
+
+input[type=submit] {
+    border-radius: 10px;
+    border: solid thin rgb(172, 172, 172);
+    text-align: center;
+    padding: 2px 5px;
+    margin: 8px 0px 15px 0px;
+}
+
+input[type=submit]:hover {
+    background-color: rgb(110, 201, 253);
+}
+
+#table-div {
+    display: block;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 table {
     border-collapse: collapse;
     font-size: 18px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    outline: thin solid rgb(172, 172, 172);
+
 }
 
 td, th {
