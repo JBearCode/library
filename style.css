@@ -18,12 +18,12 @@ h1 {
     font-size: 40px;
 }
 
-input[type=text], input[type=submit], label {
+input[type=text], input[type=submit], input[type=number], label {
     font-size: 16px;
     font-family: 'EB Garamond', serif;
 }
 
-input[type=text] {
+input[type=text], input[type=number] {
     border-radius: 10px;
     border: solid thin rgb(172, 172, 172);
     text-align: center;
@@ -31,7 +31,7 @@ input[type=text] {
     margin: 5px 0px;
 }
 
-input[type=text]:hover {
+input[type=text]:hover, input[type=number]:hover {
     background-color: rgb(110, 201, 253);
 }
 
