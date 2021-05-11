@@ -91,7 +91,7 @@ function respondToClick(e) {
 }
 
 function findBookInArray(title) {
-  if (myLibrary.length == 0 || myLibrary == null) {
+  if (myLibrary.length === 0 || myLibrary === null) {
       return;
   }
   for (let book of myLibrary) {
@@ -102,7 +102,7 @@ function findBookInArray(title) {
 }
 
 function deleteBook(arrayIndexToBeDeleted) {
-    myLibrary.splice(arrayIndexToBeDeleted, arrayIndexToBeDeleted + 1);
+    myLibrary.splice(arrayIndexToBeDeleted, 1);
 }
 
 function markReadUnread(arrayIndex) {
