@@ -8,12 +8,14 @@ form.addEventListener("submit", addBookToLibrary);
 let myLibrary = [];
 let idCounter = 3;
 
-function Book(title, author, pages, read, id) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.id = id;
+class BookClass {
+    constructor(title, author, pages, read, id) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.id = id;
+    }
 }
 
 function populateTable() {
@@ -21,9 +23,9 @@ function populateTable() {
         myLibrary = JSON.parse(localStorage.getItem("localLibrary"));
         console.log('Local library loaded');
     } else {
-        myLibrary.push(new Book('Fellowship of the Ring', 'J.R.R. Tolkein', 423, true, 0));
-        myLibrary.push(new Book('Two Towers', 'J.R.R. Tolkein', 352, true, 1));
-        myLibrary.push(new Book('Return of The King', 'J.R.R. Tolkein', 416, false, 2));
+        myLibrary.push(new BookClass('Fellowship of the Ring', 'J.R.R. Tolkein', 423, true, 0));
+        myLibrary.push(new BookClass('Two Towers', 'J.R.R. Tolkein', 352, true, 1));
+        myLibrary.push(new BookClass('Return of The King', 'J.R.R. Tolkein', 416, false, 2));
         console.log('No local library found');
     }
     updateTable();
@@ -37,7 +39,7 @@ function addBookToLibrary(e) {
   const author = document.getElementById('author').value;
   const pages = document.getElementById('pages').value;
   const alreadyRead = document.getElementById('alreadyread').checked;
-  myLibrary.push(new Book(title, author, pages, alreadyRead, idCounter++));
+  myLibrary.push(new BookClass(title, author, pages, alreadyRead, idCounter++));
   localStorage.setItem('localLibrary', JSON.stringify(myLibrary));
   updateTable();
   form.reset();
